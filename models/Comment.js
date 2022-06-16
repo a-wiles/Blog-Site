@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
-const { underscoredIf } = require('sequelize/types/utils');
+//const { underscoredIf } = require('sequelize/types/utils');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {}

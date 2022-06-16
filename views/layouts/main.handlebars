@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <link ref="stylesheet" type="text/css" href="/css/jass.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
       <div class="wrapper">
@@ -12,7 +14,7 @@
       <nav>
         {{#if loggedIn}}
         <a href="/homepage">Homepage</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <button id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
@@ -21,9 +23,6 @@
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
   </div>
   
   {{#if loggedIn}}
