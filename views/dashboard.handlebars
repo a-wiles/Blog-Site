@@ -3,3 +3,11 @@
 {{userData.id}}
 {{userData.username}}
 {{userData.email}}
+
+<ol class="post-list">
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info post }}
+    </li>
+    {{/each}}
+</ol>

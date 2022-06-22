@@ -1,9 +1,8 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
-// Import the custom middleware
 const withAuth = require('../utils/auth');
 
-// GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
     const dbUserData = await User.findAll({
@@ -29,8 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
-// Use the custom middleware before allowing the user to access the gallery
+
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.user_id, {
@@ -42,7 +40,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
     
     const userData = dbUserData.get({ plain: true });
-    console.log(userData)
     res.render('dashboard', { userData, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
