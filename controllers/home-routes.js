@@ -14,14 +14,6 @@ router.get('/', (req, res) => {
     ],
     include: [
       {
-        model: Comment,
-        attributes: ["id", "comment_body", "post_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
         model: User,
         attributes: ["username"],
       },
@@ -31,7 +23,7 @@ router.get('/', (req, res) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       if (req.session.loggedIn) {
         res.render("homepage", { loggedIn: req.session.loggedIn, user_id: req.session.user_id, user_name: req.session.user_name, user_email: req.session.user_email });
-        return;
+       
         console.log(posts, "Blog")
       }
       else {
