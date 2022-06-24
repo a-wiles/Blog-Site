@@ -21,12 +21,12 @@ router.get('/', (req, res) => {
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       if (req.session.loggedIn) {
-        res.render("homepage", { loggedIn: req.session.loggedIn, user_id: req.session.user_id, user_name: req.session.user_name, user_email: req.session.user_email });
+        res.render("homepage", { loggedIn: req.session.loggedIn, user_id: req.session.user_id, user_name: req.session.user_name, user_email: req.session.user_email, posts });
        
         console.log(posts, "Blog")
       }
       else {
-        res.render("homepage", { loggedIn: req.session.loggedIn, user_id: req.session.user_id, user_name: req.session.user_name, user_email: req.session.user_email });
+        res.render("homepage", { loggedIn: req.session.loggedIn, user_id: req.session.user_id, user_name: req.session.user_name, user_email: req.session.user_email, posts });
       }
     })
     .catch((err) => {
