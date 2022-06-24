@@ -18,8 +18,10 @@
     <h1>Your Previous Posts</h1>
         <ol>
             {{#each posts as |post|}}
-            <li>{{> post-info post}}</li>
+            <li>{{> post post}}</li>
             {{/each}}
         </ol>
 </article>
 {{/if}}
+
+<script src="./javascript/add-post.js"></script>
