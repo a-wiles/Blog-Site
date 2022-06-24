@@ -4,7 +4,6 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
-  console.log("Home Route")
   Post.findAll({
     attributes: [
       "id",
@@ -27,7 +26,7 @@ router.get('/', (req, res) => {
         console.log(posts, "Blog")
       }
       else {
-        res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+        res.render("homepage", { loggedIn: req.session.loggedIn, user_id: req.session.user_id, user_name: req.session.user_name, user_email: req.session.user_email });
       }
     })
     .catch((err) => {
@@ -36,7 +35,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get("/post/:id", withAuth, (req, res) => {
+router.get("/post/:id", (req, res) => {
 
   Post.findOne({
     where: {
@@ -79,7 +78,7 @@ router.get("/post/:id", withAuth, (req, res) => {
         return;
       }
       const post = dbPostData.get({ plain: true });
-      res.render('single-post', { post, loggedIn: true });
+      res.render('single-post', { post });
     })
     .catch(err => {
       console.log(err);

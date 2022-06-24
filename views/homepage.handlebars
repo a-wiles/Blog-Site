@@ -1,21 +1,17 @@
-<article>
+{{!-- <article>
 
     {{userData}}
-</article>
+</article> --}}
 
 {{!-- {{userData.id}}
 {{userData.username}}
 {{userData.email}} --}}
 <main class="container">
     <h6>Current Blogs</h6>
-    {{#if posts.length}}
-    <article>
         <h1>Your Previous Posts</h1>
         <ol>
             {{#each posts as |post|}}
-            <li>{{> post post}}</li>
+            <li>{{>post post}}</li>
             {{/each}}
         </ol>
-    </article>
-    {{/if}}
 </main>
