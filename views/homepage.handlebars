@@ -1,9 +1,13 @@
+<article>
+
 {{userData}}
+</article>
 
 {{userData.id}}
 {{userData.username}}
 {{userData.email}}
-
+<main class="container">
+<h6>Current Blogs</h6>
 <ol class="post-list">
     {{#each posts as |post|}}
     <li>
@@ -11,3 +15,4 @@
     </li>
     {{/each}}
 </ol>
+</main>

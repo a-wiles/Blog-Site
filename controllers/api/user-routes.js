@@ -16,11 +16,11 @@ router.post('/', async (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.user_name = dbUserData.username;
       req.session.user_email = dbUserData.email;
-
+      console.log("Signup",req.session)
       res.status(200).json(dbUserData);
     });
   } catch (err) {
-    console.log(err);
+    console.log(err,"Signup error");
     res.status(500).json(err);
   }
 });
